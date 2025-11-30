@@ -207,7 +207,8 @@
     /* projects grid */
     .projects{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:16px }
     .card{
-      border-radius:12px; padding:16px; background: var(--card-bg); border:1px solid rgba(255,255,255,0.02);
+      border-radius:20px; padding:16px; 
+      background: #07182E; /* Fallback */
       box-shadow: 0 10px 30px rgba(3,6,18,0.45); transform: translateZ(0);
       transition: transform .28s cubic-bezier(.2,.9,.25,1), box-shadow .28s, filter .28s;
       overflow:hidden; position:relative;
@@ -215,6 +216,38 @@
       cursor:default;
       opacity:0; transform: translateY(18px) scale(.995);
       animation: revealUp .6s cubic-bezier(.2,.9,.25,1) forwards;
+      display: flex; flex-direction: column;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 140%;
+      background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+      animation: rotBGimg 3s linear infinite;
+      transition: opacity 0.3s ease;
+      left: 50%; top: 50%;
+      z-index: 0;
+      opacity: 0;
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+    @keyframes rotBGimg {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      background: #07182E;
+      inset: 5px;
+      border-radius: 15px;
+      z-index: 1;
+    }
+    .card > * {
+      position: relative;
+      z-index: 2;
     }
     .card:nth-child(1){ animation-delay: 420ms }
     .card:nth-child(2){ animation-delay: 520ms }
@@ -1034,12 +1067,14 @@
       <!-- Achievements -->
       <section id="achieve" class="section" aria-labelledby="achieve-heading">
         <h2 style="margin:12px 0 6px;font-size:16px">Achievements</h2>
-        <div class="flex">
-          <div class="card small" style="flex:1">
-            <strong>Robotic Car Race</strong> — 2nd place among 20 teams (2021)
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px">
+          <div class="card small" style="display:flex; align-items:center; gap:12px">
+            <i class="fas fa-trophy" style="color:var(--neon-a); font-size:18px"></i>
+            <span>Secured 2nd place among 20 teams in a Robotic Car Race Tournament (2021).</span>
           </div>
-          <div class="card small" style="flex:1">
-            <strong>Sports</strong> — Represented district in State-Level Kabaddi (2019)
+          <div class="card small" style="display:flex; align-items:center; gap:12px">
+            <i class="fas fa-medal" style="color:var(--neon-b); font-size:18px"></i>
+            <span>Represented district in State-Level Kabaddi Tournaments (2019).</span>
           </div>
         </div>
       </section>
