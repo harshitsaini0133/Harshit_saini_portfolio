@@ -45,7 +45,9 @@ export default function Sidebar() {
         <div className="avatar-container">
           {/* Glitch effect on avatar hover could be added here later */}
           <img
-            src="/assets/21EPCCC021_3_F_Harshitsaini.jpg"
+            src={`${
+              import.meta.env.BASE_URL
+            }assets/21EPCCC021_3_F_Harshitsaini.jpg`}
             alt="Harshit Saini - Flutter Developer & Security Expert"
             className="avatar"
           />
@@ -169,7 +171,7 @@ export default function Sidebar() {
       </div>
 
       <a
-        href="/assets/HarshitSaini.pdf"
+        href={`${import.meta.env.BASE_URL}assets/HarshitSaini.pdf`}
         className="download-btn neon-border"
         target="_blank"
       >

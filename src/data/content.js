@@ -5,7 +5,7 @@ export const projectsData = [
     description:
       "Flutter-based financial dashboard integrated with secure REST APIs. Implements Advanced Encryption Standard (AES) for user data protection and secure transaction workflows.",
     tags: ["Flutter", "FinTech", "Secure API", "Clean Arch"],
-    video: "/assets/Recording 2025-10-17 165800.mp4",
+    video: `${import.meta.env.BASE_URL}assets/Recording 2025-10-17 165800.mp4`,
   },
   {
     title: "Bookzilla — Online Bookstore",
@@ -13,7 +13,7 @@ export const projectsData = [
     description:
       "Optimized bookstore app featuring Razorpay payment gateway integration, custom caching strategies for images, and Dart Isolates to maintain 60 FPS scrolling.",
     tags: ["Flutter", "E-commerce", "Razorpay", "Performance"],
-    video: "/assets/screen-20251106-165505.mp4",
+    video: `${import.meta.env.BASE_URL}assets/screen-20251106-165505.mp4`,
   },
   {
     title: "Hotspot Host Onboarding",
@@ -21,7 +21,7 @@ export const projectsData = [
     description:
       "Enterprise-grade onboarding flow using BLoC state management. Features multi-part form validation, audio/video recording capabilities, and robust error handling via Dio.",
     tags: ["Flutter", "BLoC", "Enterprise", "Media Processing"],
-    video: "/assets/hotspot_host_app.mp4",
+    video: `${import.meta.env.BASE_URL}assets/hotspot_host_app.mp4`,
   },
   {
     title: "Car Control IoT App",
@@ -29,7 +29,7 @@ export const projectsData = [
     description:
       "Low-latency vehicle control interface communicating via MQTT and WebSockets. Secured with SSL Pinning to prevent Man-in-the-Middle (MITM) attacks.",
     tags: ["IoT", "WebSockets", "MQTT", "Cybersecurity"],
-    video: "/assets/car_app.mp4",
+    video: `${import.meta.env.BASE_URL}assets/car_app.mp4`,
   },
   {
     title: "Rive Animation Experience",
@@ -37,7 +37,7 @@ export const projectsData = [
     description:
       "Showcase of complex Rive state machines and interactive animations running at 60 FPS. Demonstrates deep understanding of Flutter's rendering engine.",
     tags: ["Rive", "UI/UX", "Animation", "Interactive"],
-    video: "/assets/screen-20251106-165505.mp4",
+    video: `${import.meta.env.BASE_URL}assets/screen-20251106-165505.mp4`,
   },
 ];
 
@@ -59,7 +59,7 @@ export const profileData = {
   location: "Jaipur, India",
   email: "harshitsaini0133@gmail.com",
   phone: "+91 63504 81444",
-  resumeLink: "/assets/HarshitSaini.pdf",
+  resumeLink: `${import.meta.env.BASE_URL}assets/HarshitSaini.pdf`,
   socials: {
     github: "https://github.com/harshitsaini0133",
     tryhackme: "https://tryhackme.com/p/harshitsaini0133",
