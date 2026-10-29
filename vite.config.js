@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { portfolioHtml } from './build/portfolio-html.js'
 
-// https://vite.dev/config/
+// Static HTML plus progressive TypeScript enhancements; no hydration required.
 export default defineConfig({
-  plugins: [react()],
   base: '/Harshit_saini_portfolio/',
+  plugins: [portfolioHtml()],
+  build: { assetsInlineLimit: 0 },
 })

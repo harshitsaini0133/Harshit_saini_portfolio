@@ -1,0 +1,31 @@
+/* ---------- Store apps: hero fan, icons, rich rows, screenshot galleries ---------- */
+.hero-fan{display:flex;justify-content:center;align-items:center;width:100%;padding-block:var(--s4)}
+.hero-fan img{display:block;height:auto;border-radius:var(--r-card);box-shadow:var(--e2);background:var(--paper)}
+.hero-fan .l,.hero-fan .r{width:31%;position:relative;z-index:var(--z-raised)}
+.hero-fan .c{width:36%;position:relative;z-index:var(--z-overlay);margin-inline:-3%;box-shadow:var(--e3)}
+.hero-fan .l{transform:translateY(var(--s4)) rotate(-4deg)}
+.hero-fan .r{transform:translateY(var(--s4)) rotate(4deg)}
+.store-icons{display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:center;margin:var(--s3) 0}
+.store-icons a{display:block;width:var(--control-size);height:var(--control-size);border-radius:var(--r-ctl);overflow:hidden;box-shadow:var(--e1);transition:transform var(--t-fb) var(--ease)}
+.store-icons a:hover{transform:translateY(-2px)}
+.store-icons img{display:block;width:100%;height:100%}
+.row.app{grid-template-columns:1fr;align-items:start;gap:var(--s4);padding-block:var(--s8)}
+.app-head{display:flex;gap:var(--s4);align-items:center}
+.app-icon{width:56px;height:56px;border-radius:var(--r-ctl);flex:none;box-shadow:var(--e1)}
+.app-head h3{font-size:var(--fs-app-title);font-weight:650;line-height:1.2;letter-spacing:0}
+.app-tag{color:var(--text-2);margin-top:var(--s1)}
+.app-copy{display:grid;gap:var(--s2);max-width:72ch}
+.app-copy b{font-weight:600}
+.app-links{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center}
+.shots-wrap{min-width:0}
+.shots{display:flex;gap:var(--s3);overflow-x:auto;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:var(--s2) var(--s0) var(--s3);scrollbar-width:thin}
+.shots img{flex:none;height:min(360px,78vw);width:auto;border-radius:var(--r-ctl);box-shadow:var(--e1);scroll-snap-align:start;background:var(--inset)}
+.shots-nav{display:none;gap:var(--s2);margin-top:var(--s2)}
+html.gallery-ready .shots-nav{display:flex}
+.shots-nav button{all:unset;box-sizing:border-box;cursor:pointer;width:var(--control-size);height:var(--control-size);display:grid;place-items:center;border:1px solid var(--control);border-radius:var(--r-pill);color:var(--text);transition:background-color var(--t-fb) var(--ease)}
+.shots-nav button:hover:not(:disabled){background:var(--accent-tint)}
+.shots-nav button:disabled{opacity:.4;cursor:default}
+.shots-nav button:focus-visible{outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+.shots-nav svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:639px){.hero-fan .l,.hero-fan .r{transform:translateY(var(--s2)) rotate(-3deg)}.hero-fan .r{transform:translateY(var(--s2)) rotate(3deg)}.app-icon{width:48px;height:48px}}
+@media(prefers-reduced-motion:reduce){.store-icons a{transition:none;transform:none!important}.shots{scroll-behavior:auto}.shots-nav button{transition:none}}

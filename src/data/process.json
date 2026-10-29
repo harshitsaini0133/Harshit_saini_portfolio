@@ -1,0 +1,38 @@
+[
+  {
+    "image": "/src/assets/illustrations/step_discovery.webp",
+    "number": "01",
+    "title": "Understand the product",
+    "description": "I start from the requirements and user journey, so every screen has a clear purpose."
+  },
+  {
+    "image": "/src/assets/illustrations/step_design.webp",
+    "number": "02",
+    "title": "Plan the interface",
+    "description": "I translate the design into responsive screens, reusable widgets and clear navigation."
+  },
+  {
+    "image": "/src/assets/illustrations/step_development.webp",
+    "number": "03",
+    "title": "Build and integrate",
+    "description": "Flutter UI and state management, connected to APIs, Firebase, maps and payments with the backend team."
+  },
+  {
+    "image": "/src/assets/illustrations/step_testing.webp",
+    "number": "04",
+    "title": "Check the experience",
+    "description": "I check layouts, loading and error states, and critical journeys before addressing issues with the team."
+  },
+  {
+    "image": "/src/assets/illustrations/step_deployment.webp",
+    "number": "05",
+    "title": "Support the release",
+    "description": "I help prepare Android and iOS builds and support the app-store release workflow."
+  },
+  {
+    "image": "/src/assets/illustrations/step_maintenance.webp",
+    "number": "06",
+    "title": "Refine after launch",
+    "description": "Bug fixes, performance improvements and feature updates as the product evolves."
+  }
+]

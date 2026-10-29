@@ -1,0 +1,38 @@
+[
+  {
+    "image": "/src/assets/illustrations/service_startup_mvp.webp",
+    "title": "MVP build",
+    "description": "From idea to a working Android and iOS app you can put in front of users.",
+    "fit": "Best for founders and small teams with a clear first version.",
+    "points": [
+      "One Flutter codebase for Android and iOS",
+      "Login, payments, maps, push notifications, Firebase or REST backends",
+      "Support through Play Console and App Store Connect release"
+    ],
+    "subject": "MVP build enquiry"
+  },
+  {
+    "image": "/src/assets/illustrations/service_custom.webp",
+    "title": "Feature development",
+    "description": "Payments, maps, chat, notifications or booking flows added to an existing app.",
+    "fit": "Best for teams whose app needs one more capability.",
+    "points": [
+      "PayU CheckoutPro, Razorpay, wallets and checkout flows",
+      "Google Maps, live tracking and Socket.io real-time updates",
+      "Works inside your codebase with Git, code review, BLoC or Provider"
+    ],
+    "subject": "Feature development enquiry"
+  },
+  {
+    "image": "/src/assets/illustrations/service_fullcycle.webp",
+    "title": "Release and app refinement",
+    "description": "Store-release support, cleaner screens, smoother motion and ongoing improvements to your Flutter app.",
+    "fit": "Best for live apps that need care.",
+    "points": [
+      "Store submissions and release fixes",
+      "UI polish and motion with CustomPainter, Rive and Lottie",
+      "Bug fixes and rendering performance"
+    ],
+    "subject": "App release and refinement enquiry"
+  }
+]

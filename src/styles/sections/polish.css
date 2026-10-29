@@ -1,0 +1,64 @@
+/* ---------- Polish layer: rhythm, depth and restrained motion ----------
+   Loaded last. Colours come from tokens only; motion is gated on hover, pointer and reduced-motion. */
+
+
+/* Header: slimmer on desktop so the first screen shows more of the hero. */
+@media(min-width:960px){
+  header.site>.header-shell{min-height:64px;padding:var(--s2) var(--s4)}
+  .hero{padding-top:calc(var(--s8) + var(--s18))}
+}
+
+/* Hero: the device fan follows the pointer a little and opens on hover. */
+.hero-fan img{will-change:transform}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hero-fan img{transition:transform var(--t-stage) var(--ease)}
+  #heroTile:hover{--spread:1}
+  .hero-fan .c{transform:translate3d(calc(var(--px,0) * 8px),calc(var(--py,0) * 6px),0)}
+  .hero-fan .l{transform:translate3d(calc(var(--px,0) * -6px + var(--spread,0) * -22px),calc(var(--s4) + var(--py,0) * 4px),0) rotate(calc(-4deg + var(--spread,0) * -3deg))}
+  .hero-fan .r{transform:translate3d(calc(var(--px,0) * -6px + var(--spread,0) * 22px),calc(var(--s4) + var(--py,0) * 4px),0) rotate(calc(4deg + var(--spread,0) * 3deg))}
+}
+
+/* Depth on interactive cards. */
+.how-card,.exp,.row.app{transition:transform var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease),border-color var(--t-std) var(--ease)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .how-card:hover,.exp:hover{transform:translateY(-4px);box-shadow:var(--e2)}
+}
+
+/* Scroll reveal: content is visible unless JS marks it as waiting. */
+html.reveal-ready .reveal{opacity:0;transform:translateY(14px);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease)}
+html.reveal-ready .reveal.is-in{opacity:1;transform:none}
+html.reveal-ready .reveal.is-instant{transition:none}
+@media(prefers-reduced-motion:reduce){html.reveal-ready .reveal{opacity:1;transform:none;transition:none}}
+
+/* All work: full app rows use two columns on wide screens; shown-above apps become one line. */
+@media(min-width:1100px){
+  .row.app:not(.compact){grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);column-gap:var(--s10);align-items:start}
+  .row.app:not(.compact)>.shots-wrap{grid-column:2;grid-row:1 / span 3;align-self:center}
+  .row.app:not(.compact)>.app-head,.row.app:not(.compact)>.app-copy,.row.app:not(.compact)>.app-links{grid-column:1}
+  .row.app:not(.compact) .shots img{height:340px}
+}
+.row.app.compact{padding-block:var(--s4);gap:var(--s2) var(--s6)}
+.row.app.compact .app-icon{width:var(--control-size);height:var(--control-size)}
+@media(min-width:960px){.row.app.compact{grid-template-columns:minmax(260px,1fr) auto;align-items:center}}
+
+/* Filters stay reachable while scanning the long list. */
+@media(min-width:960px){#filters{position:sticky;top:var(--sticky-top);z-index:var(--z-sticky);padding-block:var(--s2);background:color-mix(in srgb,var(--canvas) 92%,transparent);-webkit-backdrop-filter:blur(var(--blur-md));backdrop-filter:blur(var(--blur-md))}}
+
+/* Experience: clear group headings and a calm current-role marker. */
+.xp-title{margin:var(--s10) 0 var(--s2);font-size:var(--fs-xl);font-weight:650;letter-spacing:-.02em}
+.xp-title:first-of-type{margin-top:0}
+.xp-note{margin:0 0 var(--s4);color:var(--text-2)}
+.xp .when .now{display:inline-block;width:8px;height:8px;margin-right:var(--s2);border-radius:var(--r-pill);background:var(--ok);vertical-align:middle}
+
+/* About: keep the date range on one line. */
+.nowrap{white-space:nowrap}
+
+/* Footer: the wordmark is a soft watermark and never competes with text. */
+/* Pseudo-element text: purely decorative, so it is not announced and not subject to text contrast. */
+.footer-wordmark{color:color-mix(in srgb,var(--footer-watermark) 14%,transparent)}
+.footer-wordmark::before{content:"HARSHIT"}
+.footer-updated{z-index:var(--z-float)}
+
+/* Performance budget: off-screen sections pause their ambient animation.
+   content-visibility was tried and rejected: it shifted layout (CLS 0.024) and delayed the scroll reveals. */
+main>section.is-offscreen,main>section.is-offscreen *,main>section.is-offscreen::before,main>section.is-offscreen::after{animation-play-state:paused!important}

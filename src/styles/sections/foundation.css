@@ -1,0 +1,60 @@
+@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url('/src/assets/fonts/Inter-var.woff2') format('woff2')}
+html{scrollbar-color:var(--control) var(--canvas);scrollbar-width:thin;scrollbar-gutter:stable;scroll-padding-top:var(--anchor-offset)}
+::selection{background:var(--accent-tint);color:var(--text)}
+[hidden]{display:none!important}
+
+.h-sec{font-size:var(--type-section)}
+.h-card{font-size:var(--type-title)}
+.lead{font-size:var(--type-lead)}
+.role-line{font-size:var(--type-meta);font-weight:600;color:var(--text-2)}
+.band{padding:var(--section-space) 0}
+.band-dark{color-scheme:dark}
+.head>.eyebrow{display:none}
+.head{margin-bottom:var(--s12)}
+.head .lead{max-width:48ch}
+.cap,.chip{font-size:var(--type-meta)}
+.chip{white-space:normal;max-width:100%;padding-block:var(--s1)}
+.rv,html.js:not(.rm) .rv{opacity:1;transform:none;transition:none}
+
+/* Identity, one primary action and a complete capture on the first screen. */
+.hero{padding:var(--s10) 0 var(--s12);overflow:visible}
+.hero-copy{justify-items:start;text-align:left;gap:var(--s5);will-change:auto}
+.hero h1{font-size:var(--fs-hero-compact);max-width:14ch;line-height:1.08}
+.hero .lead{max-width:34ch;font-size:var(--type-body)}
+.hero .actions{justify-content:flex-start;margin-top:0}
+.hero .tile{height:auto;min-height:0;margin:0;padding:var(--s6);border-radius:var(--r-tile);background:var(--inset);overflow:visible;gap:var(--s5);width:100%}
+.hero-proof{text-align:center;font-size:var(--type-meta);color:var(--text-2)}
+.hero-proof b{color:var(--text);font-weight:600}
+.hero-proof .more{font-size:var(--type-meta)}
+
+
+/* Stable project index: filter changes visibility, never replaces rows. */
+.count{font-size:var(--type-meta);color:var(--text-2);margin:var(--s3) 0 var(--s5);min-height:24px}
+.index{border-top:1px solid var(--hairline)}
+.row{display:grid;gap:var(--s2) var(--s6);padding:var(--s6) var(--s3);border-bottom:1px solid var(--hairline);align-items:center;grid-template-columns:1fr}
+.row .nm{font-weight:600;font-size:var(--fs-lg2);letter-spacing:0;overflow-wrap:anywhere}
+.row .ds{color:var(--text-2)}
+.row .rt{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center}
+.filters:empty{display:none}
+.filters button{white-space:normal;padding-block:var(--s2)}
+
+/* Each progressive enhancement exposes its own controls after wiring succeeds. */
+.theme-choice{display:flex;align-items:center;gap:var(--s2);font-size:var(--type-meta);color:var(--text-2)}
+.theme-choice select{font:inherit;min-height:var(--control-size);padding:var(--s2) var(--s3);color:var(--text);background:var(--surface);border:1px solid var(--control);border-radius:var(--r-ctl);cursor:pointer}
+html:not(.theme-ready) .theme-choice,html:not(.copy-ready) #copy,html:not(.nav-ready) .menu-btn{display:none}
+.mobile-nav{padding:var(--s3)}
+.mobile-nav .wrap{flex-wrap:wrap}
+.mobile-nav a{flex:1 1 40%;padding:var(--s3);font-size:var(--type-meta)}
+#copy{min-width:210px}
+#live{min-height:28px;margin-top:var(--s3)}
+#services .card{background:transparent;border-top:1px solid var(--hairline);border-radius:0;padding:var(--s6) 0;box-shadow:none}
+#services .card:hover{transform:none;background:transparent}
+.exp:hover .poster{transform:none}
+#experiments .poster{object-fit:cover;object-position:center}
+nav.main a[aria-current="location"]{color:var(--text);background:var(--inset)}
+
+@media(min-width:960px){.row{grid-template-columns:minmax(160px,1fr) minmax(180px,1.4fr) minmax(160px,1fr)}.row .rt{justify-content:flex-end}nav.main a{padding-inline:var(--s2)}}
+@media(max-width:959px){html:not(.nav-ready) .mobile-nav{display:block}}
+@media(max-width:639px){.hero h1{font-size:var(--type-display-mobile)}.brand{font-size:var(--type-meta)}.brand .mark{display:none}.theme-choice select{max-width:100px}.head{margin-bottom:var(--s8)}.hero .actions{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.more svg,.exp .poster,body,.btn,.iconbtn,.filters button{transition:none!important;transform:none!important}}
+@media(forced-colors:active){:focus-visible{outline-color:Highlight}.filters button{border:1px solid ButtonText}.filters button[aria-pressed="true"]{outline:var(--focus-w) solid Highlight;outline-offset:-3px}}

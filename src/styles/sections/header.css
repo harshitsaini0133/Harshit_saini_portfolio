@@ -1,0 +1,132 @@
+/* Fixed navigation frame; disclosure panel has independent layout rules. */
+header.site{position:fixed;inset:0 0 auto;z-index:var(--z-header);padding:var(--s4) var(--s5);background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none}
+header.site>.header-shell{width:100%;max-width:1240px;min-height:76px;padding:var(--s3) var(--s5);display:flex;align-items:center;gap:var(--s5);border:1px solid var(--hairline);border-radius:var(--r-card);background:var(--surface);box-shadow:var(--e1);pointer-events:auto;transition:box-shadow var(--t-std) var(--ease),background-color var(--t-std) var(--ease)}
+header.site.is-condensed>.header-shell{background:color-mix(in srgb,var(--surface) 94%,transparent);box-shadow:var(--e2);-webkit-backdrop-filter:blur(var(--blur-lg));backdrop-filter:blur(var(--blur-lg))}
+.brand-avatar{display:block;width:var(--control-size);height:var(--control-size);flex:none;object-fit:cover;object-position:50% 25%;border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--surface)}
+header.site .brand{gap:var(--s3)}
+.brand-copy{display:grid;gap:var(--s0);line-height:1.25}
+.brand-copy strong{font-size:var(--fs-base);font-weight:600}
+.brand-copy small{font-size:var(--fs-xs);font-weight:400;color:var(--text-2);letter-spacing:0}
+header.site nav.main{gap:var(--s1);margin-inline:auto}
+header.site nav.main a{padding-inline:var(--s3);font-size:var(--fs-md);border-radius:var(--r-ctl)}
+header.site nav.main a:hover{background:var(--inset)}
+header.site nav.main a[aria-current="location"]{background:var(--accent-tint);color:var(--link)}
+header.site .hdr-actions{gap:var(--s2)}
+header.site .hdr-link{display:inline-flex;align-items:center;min-height:var(--control-size);padding-inline:var(--s2);font-size:var(--fs-md);font-weight:500;text-decoration:none;color:var(--text-2)}
+header.site .hdr-link:hover{color:var(--link)}
+header.site .header-cta{padding-inline:var(--s5);font-size:var(--fs-md);border-radius:var(--r-ctl)}
+header.site .theme-choice{padding-left:var(--s3);border-left:1px solid var(--hairline)}
+header.site .theme-choice select{min-height:var(--control-size);padding:var(--s2);font-size:var(--fs-xs);background:var(--inset);border-color:transparent;border-radius:var(--r-ctl)}
+@media(min-width:960px) and (max-width:1279px){header.site .hdr-link{display:none}header.site>.header-shell{gap:var(--s3)}header.site nav.main a{padding-inline:var(--s2)}}
+@media(max-width:959px){
+  header.site{padding:var(--s3)}
+  header.site>.header-shell{min-height:68px;padding:var(--s2) var(--s3);gap:var(--s3);border-radius:var(--r-card)}
+  header.site .hdr-link{display:none}
+  header.site .hdr-actions{margin-left:auto}
+  .mobile-nav{display:grid;width:100%;max-width:1240px;grid-template-rows:0fr;margin:var(--s2) auto 0;padding:0;border:0;border-radius:var(--r-card);background:var(--surface);box-shadow:none;opacity:0;overflow:hidden;pointer-events:none;transition:grid-template-rows var(--t-std) var(--ease),opacity var(--t-std) var(--ease)}
+  header.site .mobile-nav>.wrap{display:flex;flex-direction:column;align-items:stretch;width:100%;min-height:0;padding:0 var(--s4);gap:0;overflow:hidden}
+  .mobile-nav a{flex:none;min-height:48px;padding:var(--s3);font-size:var(--fs-base);font-weight:500;border-color:var(--hairline)}
+  .mobile-nav a:last-child{border-bottom:0}
+  .mobile-nav.open{display:grid;grid-template-rows:1fr;border:1px solid var(--hairline);box-shadow:var(--e2);opacity:1;pointer-events:auto}
+  html:not(.nav-ready) .mobile-nav{display:block;opacity:1;pointer-events:auto}
+}
+@media(max-width:639px){header.site .brand>.brand-copy{display:grid}.header-cta{display:none}header.site .theme-choice{padding-left:0;border:0}.brand-copy strong{font-size:var(--fs-md)}.brand-copy small{font-size:var(--fs-2xs)}}
+@media(max-width:359px){.brand-copy small{display:none}header.site>.header-shell{gap:var(--s2)}header.site .brand{gap:var(--s2)}}
+@media(prefers-reduced-motion:reduce){header.site>.header-shell,.mobile-nav{transition:none}}
+
+/* ---------- Header enhancement: glass shell, segmented nav, icon actions ---------- */
+header.site>.header-shell{background:color-mix(in srgb,var(--surface) 84%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(var(--blur-lg));backdrop-filter:saturate(1.6) blur(var(--blur-lg));border-color:color-mix(in srgb,var(--hairline) 80%,transparent);border-radius:var(--r-pill);transition:min-height var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease),background-color var(--t-std) var(--ease)}
+header.site.is-condensed>.header-shell{min-height:56px;background:color-mix(in srgb,var(--surface) 90%,transparent)}
+header.site .brand:hover .brand-copy strong{color:var(--link)}
+.brand-copy strong{transition:color var(--t-fb) var(--ease)}
+
+@media(min-width:960px){
+  header.site nav.main{gap:var(--s0);padding:var(--s1);border-radius:var(--r-pill);background:var(--inset)}
+  header.site nav.main a{display:inline-flex;align-items:center;min-height:40px;padding-inline:var(--s4);border-radius:var(--r-pill);font-weight:500;transition:background-color var(--t-fb) var(--ease),color var(--t-fb) var(--ease),box-shadow var(--t-fb) var(--ease)}
+}
+@media(min-width:960px) and (max-width:1279px){header.site nav.main a{padding-inline:var(--s3);font-size:var(--fs-sm)}}
+
+header.site .hdr-resume{gap:var(--s2);padding:0 var(--s4);border:1px solid var(--control);border-radius:var(--r-pill);color:var(--text);font-weight:600;transition:background-color var(--t-fb) var(--ease),border-color var(--t-fb) var(--ease)}
+header.site .hdr-resume:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--link)}
+header.site .hdr-resume svg,header.site .header-cta svg{width:var(--icon-sm);height:var(--icon-sm);flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+header.site .header-cta{display:inline-flex;align-items:center;gap:var(--s2);border-radius:var(--r-pill);padding-inline:var(--s5)}
+header.site .header-cta svg{transition:transform var(--t-std) var(--ease)}
+header.site .header-cta:hover svg{transform:translateX(3px)}
+
+/* Appearance: the native select stays (keyboard, screen reader, mobile picker) but shows only the icon of the current preference. */
+header.site .theme-choice{position:relative;display:grid;place-items:center;width:var(--control-size);height:var(--control-size);padding:0;border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--inset);transition:background-color var(--t-fb) var(--ease),border-color var(--t-fb) var(--ease)}
+header.site .theme-choice:hover{background:var(--accent-tint);border-color:var(--accent)}
+header.site .theme-choice:focus-within{outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+header.site .theme-choice select{position:absolute;inset:0;width:100%;min-height:0;padding:0;border:0;opacity:0;cursor:pointer;font-size:var(--fs-ui);appearance:none;-webkit-appearance:none}
+
+/* Menu button: bars cross into a close mark. */
+header.site .menu-btn{border-radius:var(--r-pill)}
+.menu-btn svg path{transform-box:fill-box;transform-origin:center;transition:transform var(--t-std) var(--ease)}
+.menu-btn[aria-expanded="true"] .bar1{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bar2{transform:translateY(-4px) rotate(-45deg)}
+@media(max-width:959px){
+  header.site>.header-shell{border-radius:var(--r-card)}
+}
+@media(max-width:639px){header.site .header-cta{display:none}}
+@media(prefers-reduced-motion:reduce){.menu-btn svg path,header.site .header-cta svg{transition:none}}
+
+/* ---------- Header: Peek mark with progress ring, liquid nav pill, theme reveal ---------- */
+.brand-ring{position:relative;display:block;flex:none;width:48px;height:48px}
+.ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring rect{fill:none;stroke-width:2.5;stroke-linecap:round}
+.ring-track{stroke:color-mix(in srgb,var(--hairline) 70%,transparent)}
+.ring-fill{stroke:var(--accent);stroke-dasharray:100;stroke-dashoffset:calc(100 - var(--p, 0) * 100);opacity:min(1,calc(var(--p, 0) * 300))}
+.brand-ring .peek{position:absolute;inset:var(--s1);width:38px;height:38px;display:block}
+.pk-cream{fill:var(--peek-cream)}.pk-body{fill:var(--peek-body)}.pk-navy{fill:var(--peek-navy)}.pk-hand{fill:var(--peek-hand);stroke:var(--peek-hand-edge);stroke-width:10;stroke-linejoin:round}.pk-spark{fill:var(--peek-spark)}
+.pk-pupil{transform:translate(calc(var(--lx, 0) * 42px),calc(var(--ly, 0) * 34px));transition:transform var(--dur-3) ease-out}
+.pk-eye,.pk-brow,.pk-spark{transform-box:fill-box;transform-origin:50% 55%}
+.pk-eye{transition:transform var(--dur-1) ease-in}
+.peek.blink .pk-eye{transform:scaleY(.08)}
+.pk-brow{transition:transform var(--dur-4) var(--spring)}
+.brand:hover .pk-brow{transform:translateY(-18px)}
+.brand:hover .brand-ring .peek{transform:scale(1.06)}
+.brand-ring .peek{transition:transform var(--dur-4) var(--spring)}
+@media(prefers-reduced-motion:no-preference){.pk-spark{animation:pk-twinkle var(--dur-twinkle) ease-in-out infinite;transform-origin:50% 50%}}
+@keyframes pk-twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.22) rotate(14deg)}}
+
+@media(min-width:960px){
+  header.site nav.main{position:relative}
+  header.site nav.main a{position:relative;z-index:var(--z-raised);background:transparent!important;box-shadow:none!important}
+  header.site nav.main a.is-lit{color:var(--text)}
+  header.site nav.main a[aria-current="location"].is-lit,header.site nav.main a[aria-current="location"]{color:var(--link)}
+  .nav-pill{position:absolute;z-index:var(--z-base);top:0;left:0;width:var(--w,0);height:var(--h,0);transform:translate(var(--x,0),var(--y,0));border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--e1),0 0 0 1px color-mix(in srgb,var(--hairline) 70%,transparent);opacity:0;pointer-events:none;transition:transform var(--dur-5) var(--spring),width calc(var(--stagger) * 8) var(--spring),height calc(var(--stagger) * 5),opacity calc(var(--stagger) * 3)}
+  .nav-pill.is-on{opacity:1}
+  .nav-pill.no-anim{transition:none}
+}
+@media(max-width:959px){.nav-pill{display:none}}
+
+/* Condense: the bar narrows and the role line folds away. */
+header.site>.header-shell{transition:min-height var(--t-std) var(--ease),max-width var(--dur-5) var(--ease),box-shadow var(--t-std) var(--ease),background-color var(--t-std) var(--ease)}
+header.site.is-condensed>.header-shell{max-width:1120px}
+.brand-copy small{transition:opacity var(--t-std) var(--ease),max-height var(--t-std) var(--ease);max-height:1.4em;overflow:hidden}
+header.site.is-condensed .brand-copy small{opacity:0;max-height:0}
+
+/* Call to action: sheen sweep and a gentle pull toward the pointer. */
+header.site .header-cta{position:relative;overflow:hidden;translate:var(--mx, 0) var(--my, 0);transition:translate var(--dur-3) var(--ease),background-color var(--t-fb) var(--ease)}
+header.site .header-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgb(var(--silver-0) / .38) 48%,transparent 66%);transform:translateX(-130%);pointer-events:none}
+@media(hover:hover){header.site .header-cta:hover::after{transform:translateX(130%);transition:transform var(--dur-7) var(--ease)}}
+
+/* Appearance icons are stacked and swap with a turn. */
+.theme-ico{display:block;grid-area:1/1;width:var(--icon-md);height:var(--icon-md);fill:none;stroke:var(--text);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;opacity:0;transform:rotate(-80deg) scale(.4);transition:opacity var(--dur-3) var(--ease),transform calc(var(--stagger) * 8) var(--spring)}
+html[data-pref="system"] .ti-system,html[data-pref="light"] .ti-light,html[data-pref="dark"] .ti-dark,html:not([data-pref]) .ti-system{opacity:1;transform:none}
+header.site .theme-choice:hover .theme-ico{transform:rotate(12deg) scale(1.08)}
+html[data-pref="system"] header.site .theme-choice:hover .ti-system,html[data-pref="light"] header.site .theme-choice:hover .ti-light,html[data-pref="dark"] header.site .theme-choice:hover .ti-dark{transform:rotate(12deg) scale(1.08)}
+
+/* Entrance. */
+@media(prefers-reduced-motion:no-preference){
+  header.site>.header-shell{animation:hdr-in var(--dur-7) var(--ease) both}
+  header.site nav.main a{animation:hdr-link var(--dur-6) var(--ease) both}
+  header.site nav.main a:nth-child(2){animation-delay:calc(var(--stagger) * 2)}header.site nav.main a:nth-child(3){animation-delay:calc(var(--stagger) * 2)}header.site nav.main a:nth-child(4){animation-delay:calc(var(--stagger) * 3)}header.site nav.main a:nth-child(5){animation-delay:calc(var(--stagger) * 4)}header.site nav.main a:nth-child(6){animation-delay:calc(var(--stagger) * 5)}header.site nav.main a:nth-child(7){animation-delay:calc(var(--stagger) * 6)}
+}
+@keyframes hdr-in{from{opacity:0;transform:translateY(-18px) scale(.97)}}
+@keyframes hdr-link{from{opacity:0;transform:translateY(-6px)}}
+
+/* Theme reveal: the new theme is a circle clipped by script; both snapshots stay opaque. */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){z-index:var(--z-raised)}
+::view-transition-new(root){z-index:var(--z-overlay)}

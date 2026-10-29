@@ -1,0 +1,88 @@
+/* ---------- Hero: aurora, kinetic headline, live details, Peek on the tile edge ---------- */
+.hero{position:relative;isolation:isolate;overflow-x:clip}
+.hero::before{content:"";position:absolute;z-index:var(--z-bg);inset:-12% -10% 34%;background:radial-gradient(38% 46% at 16% 22%,rgb(var(--blue-300) / .5),transparent 70%),
+  radial-gradient(34% 42% at 84% 10%,rgb(var(--blue-200) / .75),transparent 70%),
+  radial-gradient(30% 40% at 62% 74%,rgb(var(--blue-100) / .9),transparent 70%);filter:blur(28px)}
+:root[data-theme="dark"] .hero::before{background:radial-gradient(38% 46% at 16% 22%,rgb(var(--blue-700) / .42),transparent 70%),
+  radial-gradient(34% 42% at 84% 10%,rgb(var(--blue-800) / .6),transparent 70%),
+  radial-gradient(30% 40% at 62% 74%,rgb(var(--blue-900) / .7),transparent 70%)}
+.hero::after{content:"";position:absolute;z-index:var(--z-bg);inset:0 0 38%;background-image:radial-gradient(rgb(var(--c-text) / .1) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(60% 62% at 50% 28%,black,transparent 78%);mask-image:radial-gradient(60% 62% at 50% 28%,black,transparent 78%)}
+
+/* Availability pulse. */
+.avail-dot{position:relative}
+.avail-dot::after{content:"";position:absolute;inset:0;border-radius:inherit;background:inherit;opacity:0}
+
+/* Headline: masked line rise, moving blue sheen, hand-drawn underline. */
+.h-hero .line{display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.14em}
+.h-hero .line-in{display:inline-block}
+.h-hero .tone{color:rgb(var(--c-accent));background:linear-gradient(100deg,rgb(var(--c-accent-hover)) 0%,rgb(var(--c-accent)) 45%,rgb(var(--c-accent-hover)) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.uw{position:relative;display:inline-block}
+.squig{position:absolute;left:-1%;right:-1%;bottom:-.12em;width:102%;height:.2em;overflow:visible;pointer-events:none}
+.squig path{fill:none;stroke:rgb(var(--c-accent));stroke-width:7;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+
+/* Rotating domain word keeps its width, so the lead never reflows. */
+.rot{display:inline;vertical-align:baseline}
+.rot-stack{display:inline-block;position:relative;vertical-align:baseline;height:1.4em;margin-bottom:-.4em;width:var(--rw,auto);transition:width var(--dur-5) var(--spring)}
+.rot-item{position:absolute;left:0;top:0;white-space:nowrap;padding:0;background:none;box-shadow:none;color:var(--link);font-weight:650;text-align:left;opacity:0;transform:translateY(60%);transition:opacity var(--dur-5) var(--ease),transform calc(var(--stagger) * 8) var(--spring)}
+.rot-item.on{opacity:1;transform:none}
+.rot-item.out{opacity:0;transform:translateY(-60%)}
+
+/* Facts: cursor spotlight. */
+.facts>div{position:relative;overflow:hidden;transition:transform var(--t-std) var(--ease),border-color var(--t-std) var(--ease)}
+.facts>div::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(170px circle at var(--sx, 50%) var(--sy, -60%),rgb(var(--c-accent) / .16),transparent 70%);opacity:0;transition:opacity var(--dur-4) var(--ease)}
+@media(hover:hover){.facts>div:hover{transform:translateY(-3px);border-color:rgb(var(--c-accent) / .5)}.facts>div:hover::before{opacity:1}}
+.facts dd,.facts dt{position:relative}
+
+/* Primary action. */
+.hero .btn.primary{position:relative;overflow:hidden;gap:var(--s2)}
+.hero .btn.primary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero .btn.primary::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 30%,rgb(var(--silver-0) / .38) 48%,transparent 66%);transform:translateX(-130%)}
+@media(hover:hover){.hero .btn.primary:hover::after{transform:translateX(130%);transition:transform var(--dur-7) var(--ease)}}
+
+/* Device fan: glow, idle float, and Peek peeking over the tile edge. */
+.hero-fan{position:relative}
+.hero-fan::before{content:"";position:absolute;z-index:var(--z-base);inset:8% 22% -6%;background:radial-gradient(closest-side,rgb(var(--c-accent) / .38),transparent);filter:blur(26px);pointer-events:none}
+.hero-fan img{position:relative}
+.hero-peek{position:absolute;z-index:var(--z-float);top:0;left:clamp(var(--s5),9%,var(--s30));width:clamp(88px,11vw,142px);transform:translateY(-94.1%);transform-origin:50% 94%;pointer-events:none}
+.hero-peek .peek{display:block;width:100%;height:auto;overflow:visible}
+
+/* App dock: icons grow toward the pointer. */
+.store-icons{width:max-content;max-width:100%;margin:var(--s5) auto var(--s2);padding:var(--s3) var(--s4);gap:var(--s3);border:1px solid var(--hairline);border-radius:var(--r-xl);background:color-mix(in srgb,var(--surface) 72%,transparent);-webkit-backdrop-filter:blur(var(--blur-md));backdrop-filter:blur(var(--blur-md))}
+.store-icons a{--s:1;position:relative;overflow:visible;transform:translateY(calc((var(--s) - 1) * -12px)) scale(var(--s));transform-origin:50% 100%;transition:transform var(--dur-2) ease-out}
+.store-icons a>img{border-radius:var(--r-ctl)}
+.store-icons a::after{content:attr(data-name);position:absolute;bottom:calc(100% + var(--s3));left:50%;padding:var(--s1) var(--s3);border-radius:var(--r-chip);background:var(--text);color:var(--canvas);font-size:var(--fs-xs);font-weight:600;white-space:nowrap;opacity:0;transform:translateX(-50%) scale(calc(1 / var(--s)));transform-origin:50% 100%;pointer-events:none;transition:opacity var(--dur-2) var(--ease)}
+.store-icons a.peak::after,.store-icons a:focus-visible::after{opacity:1}
+
+/* Motion: entrance, drift and float run only when motion is welcome. */
+@media(prefers-reduced-motion:no-preference){
+  .hero::before{animation:aurora var(--dur-drift-slow) ease-in-out infinite alternate}
+  .avail-dot::after{animation:ping var(--dur-pulse) ease-out infinite}
+  .h-hero .line-in{animation:rise var(--dur-8) var(--ease) both}
+  .h-hero .line:nth-child(2) .line-in{animation-delay:calc(var(--stagger) * 2)}
+  .h-hero .tone{animation:rise var(--dur-8) var(--ease) both,sheen calc(var(--stagger) * 117) linear calc(var(--stagger) * 20) infinite}
+  .squig{animation:draw var(--dur-8) var(--ease) calc(var(--stagger) * 18) both}
+  .hero-copy>.avail,.hero-copy>.role-line,.hero-copy>.lead,.hero-copy>.facts,.hero-copy>.actions{animation:fade-up var(--dur-7) var(--ease) both}
+  .hero-copy>.avail{animation-delay:calc(var(--stagger) * 1)}.hero-copy>.role-line{animation-delay:calc(var(--stagger) * 2)}.hero-copy>.lead{animation-delay:calc(var(--stagger) * 7)}.hero-copy>.facts{animation-delay:calc(var(--stagger) * 9)}.hero-copy>.actions{animation-delay:calc(var(--stagger) * 11)}
+  .hero .btn.primary svg{animation:nudge var(--dur-pulse) ease-in-out infinite}
+  .hero-fan img{animation:float var(--dur-float) ease-in-out infinite}
+  .hero-fan .l{animation-delay:-2.3s}.hero-fan .r{animation-delay:-4.6s}
+  .hero-peek{animation:peek-up var(--dur-7) var(--spring) calc(var(--stagger) * 15) both}
+}
+@keyframes aurora{from{transform:translate3d(-2%,0,0) scale(1)}to{transform:translate3d(3%,4%,0) scale(1.08)}}
+@keyframes ping{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(2.8);opacity:0}}
+@keyframes rise{from{transform:translateY(112%)}}
+@keyframes sheen{to{background-position:-220% 0}}
+@keyframes draw{from{clip-path:inset(-20% 100% -20% 0)}to{clip-path:inset(-20% 0 -20% 0)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(16px)}}
+@keyframes nudge{50%{transform:translateY(3px)}}
+@keyframes float{50%{translate:0 -9px}}
+@keyframes peek-up{from{opacity:0;scale:.82}}
+
+/* Room for Peek above the tile edge. */
+.hero .tile.dots{margin-top:var(--hero-tile-gap)}
+@media(max-width:639px){.hero .tile.dots{margin-top:var(--s24)}}
+
+/* Small screens: the tile may never grow past its column, so the dock wraps instead of widening the page. */
+.hero .tile{grid-template-columns:minmax(0,1fr)}
+.hero .tile>*{min-width:0;max-width:100%}
+.hero-proof .store-icons{width:auto;max-width:100%;justify-content:center}

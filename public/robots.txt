@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harshitsaini0133.github.io/Harshit_saini_portfolio/sitemap.xml

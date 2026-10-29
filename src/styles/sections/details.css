@@ -1,0 +1,87 @@
+/* ---------- Project details, store buttons, credentials and open-source lists ---------- */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* Store buttons: solid badges with the store logo and a two-line label. The full app name is in the screen-reader text. */
+.store-btn{display:inline-flex;align-items:center;gap:var(--s3);min-height:52px;padding:0 var(--s5) 0 var(--s4);border-radius:var(--r-ctl);background:var(--text);color:var(--canvas);text-decoration:none;box-shadow:var(--e1);transition:background-color var(--t-fb) var(--ease),transform var(--t-press) var(--ease),box-shadow var(--t-fb) var(--ease)}
+.store-btn .store-ico{width:26px;height:26px;color:inherit}
+.store-text{display:grid;gap:var(--s0);line-height:1.1;text-align:left}
+.store-text small{font-size:var(--fs-xs);font-weight:500;letter-spacing:.02em;opacity:.82}
+.store-text b{font-size:var(--fs-ui);font-weight:650;letter-spacing:-.01em}
+.store-btn:hover{background:var(--accent);color:var(--on-accent);box-shadow:var(--e2)}
+.store-btn:active{transform:scale(.97)}
+.store-btn:focus-visible{outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+.row.app.compact .store-btn{min-height:var(--control-size);padding:0 var(--s4) 0 var(--s3)}
+.row.app.compact .store-btn .store-ico{width:22px;height:22px}
+.row.app.compact .store-text small{display:none}
+.row.app.compact .store-text b{font-size:var(--fs-base)}
+.repo-link{display:inline-flex;align-items:center;gap:var(--s2);min-height:var(--control-size);padding:0 var(--s4);border:1px solid var(--control);border-radius:var(--r-pill);color:var(--text);font-size:var(--fs-md);font-weight:600;text-decoration:none;background:var(--surface);transition:background-color var(--t-fb) var(--ease),border-color var(--t-fb) var(--ease)}
+.repo-link:hover{background:var(--accent-tint);border-color:var(--accent)}
+.repo-link:focus-visible{outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+.store-ico{width:var(--icon-md);height:var(--icon-md);flex:none}
+.app-links,.pc-copy .links{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center}
+
+/* Case study block: problem, approach, my part. */
+.app-case{display:grid;gap:var(--s4);max-width:72ch}
+.case{display:grid;gap:var(--s3);margin:0}
+.case>div{display:grid;gap:var(--s0)}
+.case dt{font-size:var(--fs-sm);font-weight:650;letter-spacing:.02em;text-transform:uppercase;color:var(--text-2)}
+.case dd{margin:0}
+.stack-chips{display:flex;flex-wrap:wrap;gap:var(--s2);margin:var(--s2) 0 0;padding:0;list-style:none}
+.stack-chips .chip{min-height:28px;font-size:var(--fs-sm)}
+.row .ds .stack-chips{margin-top:var(--s2)}
+.pc-problem{margin:0;color:var(--text)}
+.pc-problem b{font-weight:650}
+.pc-label{margin:var(--s2) 0 0;font-size:var(--fs-sm);font-weight:650;letter-spacing:.02em;text-transform:uppercase;color:var(--text-2)}
+.pc-copy .stack-chips{margin:0}
+
+/* Experience bullets. */
+.xp-points{margin:0;padding:0;list-style:none;display:grid;gap:var(--s2);color:var(--text-2);font-size:var(--fs-ui)}
+.xp .xp-points li{display:block;grid-template-columns:none;position:relative;padding:0 0 0 var(--s4);border:0}
+.xp-points li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:var(--r-pill);background:var(--control)}
+.xp li{align-items:start}
+
+/* Credentials. */
+.cred-grid{display:grid;gap:var(--s10);align-items:start}
+@media(min-width:960px){.cred-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)}}
+.cred-col .xp-title{margin-top:var(--s8)}
+.cred-col .xp-title:first-child{margin-top:0}
+.cred-list{display:grid;gap:var(--s3);margin:var(--s3) 0 0;padding:0;list-style:none}
+.cert{padding:var(--s4) var(--s5);border:1px solid var(--hairline);border-radius:var(--r-ctl);background:var(--surface)}
+.cert h4{margin:0;font-size:var(--fs-ui);font-weight:650;line-height:1.35}
+.cert-meta,.cert-id,.cert-note{margin:var(--s1) 0 0;font-size:var(--fs-md);color:var(--text-2)}
+.cert-id code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);overflow-wrap:anywhere}
+
+/* Open source. */
+.repo-grid{display:grid;gap:var(--s4);margin:0;padding:0;list-style:none}
+@media(min-width:768px){.repo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.repo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.repo{display:grid;gap:var(--s3);align-content:start;padding:var(--s6);border:1px solid var(--hairline);border-radius:var(--r-card);background:var(--surface)}
+.repo h3{margin:0;font-size:var(--fs-lg);font-weight:650;line-height:1.3}
+.repo p{margin:0;color:var(--text-2)}
+.repo .stack-chips{margin:0}
+.repo-link{justify-self:start;margin-top:var(--s1)}
+.repo-more{margin-top:var(--s4)}
+.repo-more>summary{display:flex;justify-content:center;align-items:center;min-height:var(--control-size);width:max-content;margin:0 auto var(--s4);padding:0 var(--s6);border:1px solid var(--control);border-radius:var(--r-pill);font-weight:600;cursor:pointer;list-style:none;background:var(--surface)}
+.repo-more>summary::-webkit-details-marker{display:none}
+.repo-more>summary:hover{background:var(--accent-tint)}
+.repo-more>summary:focus-visible{outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+.repo-more .when-open,.repo-more[open] .when-closed{display:none}
+.repo-more[open] .when-open{display:inline}
+.repo-all{text-align:center;margin-top:var(--s6)}
+
+/* Hero: availability, at-a-glance facts, three clear actions. */
+.avail{display:inline-flex;align-items:center;gap:var(--s2);margin:0;padding:var(--s1) var(--s4);border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--surface);font-size:var(--type-meta);font-weight:600;color:var(--text)}
+.avail-dot{width:8px;height:8px;border-radius:var(--r-pill);background:var(--ok)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s3);width:100%;max-width:880px;margin:var(--s2) 0 0;padding:0}
+@media(min-width:768px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.facts>div{display:grid;gap:var(--s0);padding:var(--s3) var(--s4);border:1px solid var(--hairline);border-radius:var(--r-ctl);background:var(--surface);text-align:left}
+.facts dt{font-size:var(--fs-xs);font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:var(--text-2)}
+.facts dd{margin:0;font-size:var(--fs-sm);line-height:1.35;color:var(--text-2)}
+.facts dd b{display:block;font-size:var(--fs-ui);font-weight:650;color:var(--text)}
+
+.contact-hint{max-width:60ch;margin:var(--s2) 0 0;color:var(--footer-muted)}
+@media(min-width:768px){footer.site .footer-panel{min-height:700px}}
+.footer-contact .footer-secondary{border:1px solid var(--control)}
+
+/* Stand-alone links are full-size touch targets; inline links inside sentences keep their text size. */
+.repo-all a,.sec-pills a{display:inline-flex;align-items:center;min-height:var(--control-size)}

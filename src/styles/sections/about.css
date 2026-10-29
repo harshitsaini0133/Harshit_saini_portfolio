@@ -1,0 +1,26 @@
+/* ---------- About: portrait on a brand stage, skill bento cards ---------- */
+.about{display:grid;gap:var(--s10);align-items:start}
+@media(min-width:960px){.about{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--s12)}.about-side{position:sticky;top:calc(var(--sticky-top) + var(--s4))}}
+.portrait{position:relative;margin:0 auto;max-width:420px;overflow:hidden;border-radius:var(--r-tile);background:rgb(var(--silver-0));box-shadow:var(--e2),inset 0 0 0 1px var(--hairline)}
+.portrait img{display:block;width:100%;height:auto}
+.portrait figcaption{position:absolute;left:var(--s4);right:var(--s4);bottom:var(--s4);display:flex;align-items:center;gap:var(--s2);padding:var(--s2) var(--s4);border-radius:var(--r-pill);background:color-mix(in srgb,var(--surface) 88%,transparent);-webkit-backdrop-filter:blur(var(--blur-sm));backdrop-filter:blur(var(--blur-sm));font-size:var(--fs-md);font-weight:600;box-shadow:var(--e1)}
+.pf-dot{width:8px;height:8px;border-radius:var(--r-pill);background:var(--ok)}
+@media(prefers-reduced-motion:no-preference){.portrait{transition:transform var(--dur-5) var(--spring,var(--spring))}.portrait:hover{transform:rotate(-1.5deg) scale(1.02)}}
+
+.sec-pills{display:flex;flex-wrap:wrap;gap:var(--s2);margin:var(--s5) 0 0;padding:0;list-style:none}
+.sec-pills li{display:inline-flex;align-items:center;min-height:32px;padding:0 var(--s3);border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--canvas);font-size:var(--fs-sm);font-weight:600}
+.sec-pills a{display:inline-flex;align-items:center;gap:var(--s1);color:var(--link);text-decoration:none}
+.sec-pills a svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sec-pills li:last-child{border-style:dashed}
+
+.skills-grid{display:grid;gap:var(--s4);margin:0}
+@media(min-width:768px){.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skill.wide{grid-column:1 / -1}}
+.skill{position:relative;overflow:hidden;display:grid;gap:var(--s3);align-content:start;padding:var(--s5) var(--s6);border:1px solid var(--hairline);border-radius:var(--r-card);background:var(--canvas);transition:border-color var(--t-std) var(--ease),transform var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease)}
+.skill::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(240px circle at var(--sx,50%) var(--sy,-60%),rgb(var(--c-accent) / .14),transparent 70%);opacity:0;transition:opacity var(--dur-4) var(--ease)}
+@media(hover:hover){.skill:hover::before{opacity:1}.skill:hover{border-color:rgb(var(--c-accent) / .45);box-shadow:var(--e2)}}
+.skill dt{position:relative;display:flex;align-items:center;gap:var(--s3);margin:0;font-weight:650;font-size:var(--fs-body)}
+.skill dt svg{width:36px;height:36px;padding:var(--s2);flex:none;border-radius:var(--r-ctl);background:var(--accent-tint);fill:none;stroke:var(--link);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.skill dd{position:relative;margin:0}
+.skill-chips{display:flex;flex-wrap:wrap;gap:var(--s2);margin:0;padding:0;list-style:none}
+.skill-chips li{display:inline-flex;align-items:center;min-height:30px;padding:0 var(--s3);border-radius:var(--r-pill);background:var(--surface);box-shadow:inset 0 0 0 1px var(--hairline);font-size:var(--fs-md);font-weight:500;transition:background-color var(--dur-2) var(--ease),box-shadow calc(var(--stagger) * 2) var(--ease),transform calc(var(--stagger) * 2) var(--ease)}
+@media(hover:hover){.skill-chips li:hover{background:var(--accent-tint);box-shadow:inset 0 0 0 1px rgb(var(--c-accent) / .5);transform:translateY(-2px)}}

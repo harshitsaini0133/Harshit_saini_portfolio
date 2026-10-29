@@ -1,0 +1,26 @@
+/* ---------- UI experiments: a dark studio band with glowing stages ---------- */
+.lab{position:relative;isolation:isolate;overflow:hidden;background:var(--canvas)}
+.lab::before{content:"";position:absolute;z-index:var(--z-bg);inset:0;background:radial-gradient(40% 50% at 22% 62%,rgb(var(--cyan-400) / .16),transparent 70%),
+  radial-gradient(40% 50% at 80% 58%,rgb(var(--c-brand-jigro) / .22),transparent 70%)}
+.lab::after{content:"";position:absolute;z-index:var(--z-bg);inset:0;background-image:linear-gradient(rgb(var(--c-text) / .05) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--c-text) / .05) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(75% 70% at 50% 55%,#000,transparent);mask-image:radial-gradient(75% 70% at 50% 55%,#000,transparent)}
+.lab .h-sec{color:rgb(var(--c-text))}
+.lab .exp-grid{gap:var(--s6)}
+.lab .exp{position:relative;display:grid;grid-template-rows:auto 1fr;margin:0;border:1px solid rgb(var(--c-text) / .12);border-radius:var(--r-tile);background:rgb(var(--c-surface) / .72);-webkit-backdrop-filter:blur(var(--blur-sm));backdrop-filter:blur(var(--blur-sm));box-shadow:0 40px 80px -40px rgb(var(--black) / .8)}
+.lab .exp::before{content:"";position:absolute;z-index:var(--z-raised);inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--sx,50%) var(--sy,-60%),rgb(var(--c-accent) / .18),transparent 70%);opacity:0;transition:opacity var(--dur-4) var(--ease)}
+@media(hover:hover){.lab .exp:hover::before{opacity:1}.lab .exp:hover{border-color:rgb(var(--c-accent) / .45)}}
+.lab .exp[data-glow="car"]{--g:34 211 238}
+.lab .exp[data-glow="host"]{--g:var(--c-brand-jigro)}
+.lab .vid{position:relative;overflow:hidden;background:rgb(var(--black));border-bottom:1px solid rgb(var(--c-text) / .1)}
+.lab .vid::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgb(var(--g) / .22));pointer-events:none}
+.lab .poster{display:block;width:100%;height:auto;aspect-ratio:900 / 500;object-fit:cover;transition:transform var(--dur-7) var(--ease)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.lab .exp:hover .poster{transform:scale(1.05)}}
+.exp-tag{position:absolute;z-index:var(--z-overlay);top:var(--s4);left:var(--s4);padding:var(--s1) var(--s3);border-radius:var(--r-pill);background:rgb(var(--black) / .55);border:1px solid rgb(var(--silver-0) / .18);color:rgb(var(--silver-0));font-size:var(--fs-xs);font-weight:650;letter-spacing:.04em;text-transform:uppercase;-webkit-backdrop-filter:blur(var(--blur-sm));backdrop-filter:blur(var(--blur-sm))}
+.lab .capt{position:relative;z-index:var(--z-overlay);align-content:start;grid-template-rows:auto auto auto 1fr;gap:var(--s3);padding:var(--s6) var(--s6) var(--s8)}
+.lab .capt b{font-family:var(--font-display);text-transform:uppercase;font-weight:800;font-size:var(--fs-4xl);letter-spacing:.01em;line-height:1.1}
+.lab .capt p{margin:0;color:rgb(var(--c-text-2))}
+.lab .capt .stack-chips{margin:var(--s1) 0}
+.lab .repo-link{justify-self:start;align-self:end;margin-top:var(--s2)}
+.lab-more{text-align:center;margin:var(--s8) 0 0}
+@media(prefers-reduced-motion:no-preference){
+  .lab::before{animation:aurora var(--dur-drift) ease-in-out infinite alternate}
+}

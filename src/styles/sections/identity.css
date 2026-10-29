@@ -1,0 +1,59 @@
+/* ---------- Reference-inspired identity ----------
+   Patterns taken from flutteryourway.com as a UI/UX reference: condensed display type, a cool canvas, white bordered cards,
+   dotted texture, centred section headers, and stacked project cards with a per-project accent. Content, stats and voice are not taken. */
+@font-face{font-family:Phudu;font-style:normal;font-weight:300 900;font-display:swap;src:url('/src/assets/fonts/Phudu-var.woff2') format('woff2')}
+:root{--font-display:Phudu,'Arial Narrow',Impact,sans-serif}
+.h-hero,.h-sec,.h-card{font-family:var(--font-display)}
+.h-hero,.h-sec{text-transform:uppercase;font-weight:800;letter-spacing:-.01em;line-height:1.02}
+.h-card{text-transform:uppercase;font-weight:800;letter-spacing:0;line-height:1.05}
+.tone{color:var(--text-2)}
+.band.gray{background:var(--surface)}
+.head.center{justify-items:center;text-align:center}
+.head.center .lead{margin-inline:auto}
+.dots{background-image:radial-gradient(rgb(var(--c-text) / .1) 1px,transparent 1px);background-size:14px 14px}
+.hero{padding:var(--s12) 0}
+.hero-copy{justify-items:center;text-align:center;gap:var(--s5)}
+.hero h1{font-size:var(--fs-hero);max-width:15ch;text-wrap:balance}
+.hero .lead{max-width:46ch;font-size:var(--type-lead)}
+.hero .actions{justify-content:center;flex-direction:row;flex-wrap:wrap;align-items:center;gap:var(--s3)}
+.hero .tile.dots{max-width:1100px;margin:var(--s12) auto 0;background-color:var(--surface);border:1px solid var(--hairline)}
+.hero-fan .l,.hero-fan .r{width:24%}.hero-fan .c{width:28%}
+.stack{display:grid;gap:var(--s6)}
+.project-card{display:grid;gap:var(--s8);background:var(--surface);border:1px solid var(--hairline);border-radius:var(--r-tile);padding:var(--s6);box-shadow:var(--e2);scroll-margin-top:var(--anchor-offset)}
+.pc-copy{display:grid;gap:var(--s4);align-content:start}
+.pc-copy .idx{font-size:var(--type-meta);font-weight:600;color:var(--text-2)}
+.pc-copy h3{font-size:var(--fs-card-title)}
+.pc-copy .kicker{color:var(--text-2);font-size:var(--type-lead);line-height:1.35}
+.brand-jakhar{color:var(--brand-jakhar)}.brand-jigro{color:var(--brand-jigro)}.brand-beavr{color:var(--brand-beavr)}
+.pc-meta{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5) var(--s6);margin:var(--s2) 0}
+.pc-meta dt{font-size:var(--type-meta);color:var(--text-2)}
+.pc-meta dd{margin:var(--s1) 0 0;font-weight:500}
+.pc-copy ul.what{display:grid;gap:var(--s2)}
+.pc-copy .chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.pc-copy .links{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4)}
+.pc-media{display:flex;justify-content:center;align-items:center;gap:var(--s3);border-radius:var(--r-card);padding:var(--s6);background-color:var(--inset);min-height:260px;overflow:hidden}
+.pc-media img{width:31%;height:auto;border-radius:var(--r-card);box-shadow:var(--e2);background:var(--paper)}
+.pc-media img:nth-child(2){transform:translateY(var(--s6))}
+@media(min-width:960px){.project-card{grid-template-columns:1.05fr 1fr;align-items:center;padding:var(--s12);gap:var(--s12)}.pc-media{min-height:440px}}
+@media(min-width:960px) and (min-height:700px){.project-card{position:sticky;top:calc(var(--sticky-top) + var(--i,0) * var(--s4))}}
+@media(max-width:639px){.pc-meta{grid-template-columns:1fr}.project-card{padding:var(--s5)}.pc-media{padding:var(--s4)}}
+.index{border-top:0}
+.row.app{background:var(--surface);border:1px solid var(--hairline);border-radius:var(--r-card);padding:var(--s6) var(--s6);margin-bottom:var(--s4)}
+.row:not(.app){background:var(--surface);border:1px solid var(--hairline);border-radius:var(--r-ctl);margin-bottom:var(--s2);padding:var(--s4) var(--s5)}
+.how{display:grid;gap:var(--s4)}
+@media(min-width:768px){.how{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.how{grid-template-columns:repeat(3,1fr)}}
+.how-card{display:grid;gap:var(--s3);align-content:start;background:var(--surface);border:1px solid var(--hairline);border-radius:var(--r-card);padding:var(--s8)}
+.how-n{font-family:var(--font-display);font-weight:800;font-size:var(--fs-6xl);line-height:1;color:var(--link)}
+.how-card h3{font-size:var(--fs-xl);font-weight:650;line-height:1.25}
+.how-card p{color:var(--text-2)}
+.process-art,.service-art{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:var(--r-ctl)}
+.how-heading{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s2)}
+.how-heading .how-n{font-size:var(--fs-3xl);flex:none}
+.how-card .process-art{max-width:240px;justify-self:center}
+#services .service-art{margin-bottom:var(--s5)}
+@media(min-width:640px) and (max-width:959px){#services .card{display:grid;grid-template-columns:180px 1fr;column-gap:var(--s6);align-content:center}#services .service-art{grid-row:span 2;margin:0}#services .card p{align-self:start}}
+@media(prefers-reduced-motion:reduce){.project-card{scroll-behavior:auto}}
+
+.pc-copy ul.what li{display:grid;grid-template-columns:22px 1fr;gap:var(--s2);align-items:start}
+.pc-copy ul.what svg{width:22px;height:22px;stroke:var(--link);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:var(--s0)}

@@ -1,0 +1,16 @@
+/* ---------- How I work: numbered steps joined by a dashed path, calm illustrated stages ---------- */
+.how{counter-reset:none;gap:var(--s6) var(--s5)}
+.how-card{position:relative;overflow:hidden;gap:var(--s3);padding:var(--s4) var(--s4) var(--s6);border-radius:var(--r-tile);background:var(--surface);transition:transform var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease),border-color var(--t-std) var(--ease)}
+.how-card .process-art{max-width:none;width:100%;aspect-ratio:4 / 3;object-fit:cover;padding:0;border-radius:var(--r-card);background:var(--inset);transition:transform var(--dur-5) var(--spring,var(--spring))}
+:root[data-theme="dark"] .how-card .process-art{filter:brightness(.9) saturate(.95)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.how-card:hover .process-art{transform:scale(1.05)}}
+.how-heading{display:block;margin:var(--s2) var(--s2) 0}
+.how-card p{margin:0 var(--s2)}
+/* The number sits on the stage corner as a badge. */
+.how-n{position:absolute;top:var(--s6);left:var(--s6);display:grid;place-items:center;width:var(--control-size);height:var(--control-size);border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--e1),inset 0 0 0 1px var(--hairline);font-family:var(--font-display);font-weight:800;font-size:var(--fs-body);line-height:1;color:var(--link)}
+.how-heading .how-n{font-size:var(--fs-body)}
+.how-card h3{font-size:var(--fs-lg2);font-weight:650}
+.how-card:hover{border-color:rgb(var(--c-accent) / .4)}
+/* Closing call to action. */
+.how-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s3) var(--s5);margin:var(--s10) 0 0;padding:var(--s5) var(--s6);border:1px dashed var(--control);border-radius:var(--r-pill);text-align:center;color:var(--text-2)}
+.how-cta b{color:var(--text);font-weight:650}

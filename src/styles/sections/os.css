@@ -1,0 +1,43 @@
+/* ---------- Open source: repo cards with a path header, language dot and whole-card link ---------- */
+.os-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s3);margin:0 0 var(--s8);padding:0;list-style:none}
+.os-stats li{display:flex;align-items:baseline;gap:var(--s3);padding:var(--s3) var(--s5);border:1px solid var(--hairline);border-radius:var(--r-pill);background:var(--canvas)}
+.os-stats b{font-family:var(--font-display);font-weight:800;font-size:var(--fs-5xl);line-height:1;color:var(--link);font-variant-numeric:tabular-nums}
+.os-stats span{font-size:var(--fs-md);color:var(--text-2)}
+
+.repo{position:relative;grid-template-rows:auto auto 1fr auto auto;gap:var(--s3);padding:var(--s5) var(--s6) var(--s5);background:var(--canvas);transition:transform var(--t-std) var(--ease),box-shadow var(--t-std) var(--ease),border-color var(--t-std) var(--ease)}
+.repo-top{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.repo-path{display:inline-flex;align-items:center;gap:var(--s2);min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--fs-xs);color:var(--text-2)}
+.repo-slug{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.repo-ico{width:var(--icon-sm);height:var(--icon-sm);flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+.repo-kind{flex:none;padding:var(--s0) var(--s3);border-radius:var(--r-pill);background:var(--accent-tint);color:var(--link);font-size:var(--fs-xs);font-weight:650}
+.repo h3{font-size:var(--fs-lg)}
+.repo-foot{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s1);padding-top:var(--s4);border-top:1px dashed var(--hairline)}
+.repo-lang{display:inline-flex;align-items:center;gap:var(--s2);font-size:var(--fs-sm);font-weight:600;color:var(--text-2)}
+.repo-lang i{width:10px;height:10px;border-radius:var(--r-pill);background:rgb(var(--c-accent))}
+.repo[data-lang="react"] .repo-lang i{background:rgb(var(--cyan-400))}
+.repo[data-lang="web"] .repo-lang i{background:rgb(var(--c-warn))}
+.repo[data-lang="cpp"] .repo-lang i{background:rgb(var(--c-control))}
+/* The whole card is the link target; the visible button stays for keyboard and screen readers. */
+.repo-link{margin:0;padding:0 var(--s3) 0 var(--s4)}
+.repo-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.repo-arrow{width:var(--icon-sm);height:var(--icon-sm);flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--t-std) var(--ease)}
+@media(hover:hover){
+  .repo:hover{border-color:rgb(var(--c-accent) / .5);box-shadow:var(--e2)}
+  .repo:hover .repo-link{background:var(--accent-tint);border-color:var(--accent)}
+  .repo:hover .repo-arrow{transform:translate(2px,-2px)}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.repo:hover{transform:translateY(-4px)}}
+.repo-link:focus-visible{outline:none}
+.repo:has(.repo-link:focus-visible){outline:var(--focus-w) solid var(--accent);outline-offset:var(--focus-gap)}
+.repo-grid{align-items:stretch}
+.repo .chip{background:var(--surface);box-shadow:inset 0 0 0 1px var(--hairline)}
+.repo-link{white-space:nowrap}
+.repo-lang{white-space:nowrap;min-width:0}
+.repo-foot{flex-wrap:wrap}
+
+/* One column must be allowed to shrink below its content, or long repo names widen the page on small phones. */
+.repo-grid{grid-template-columns:minmax(0,1fr)}
+@media(min-width:768px){.repo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.repo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.repo{min-width:0}
+.repo h3,.repo p{overflow-wrap:anywhere}

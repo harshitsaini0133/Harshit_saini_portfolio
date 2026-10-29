@@ -1,0 +1,43 @@
+/* ---------- Work: branded stage per app, stacking depth, tilt and a progress rail ---------- */
+.project-card[data-app="jakhar"],.work-rail a[data-app="jakhar"]{--b:var(--c-brand-jakhar)}
+.project-card[data-app="jigro"],.work-rail a[data-app="jigro"]{--b:var(--c-brand-jigro)}
+.project-card[data-app="beavr"],.work-rail a[data-app="beavr"]{--b:var(--c-brand-beavr)}
+
+.work-more{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s3) var(--s5);margin:var(--s2) 0 0}
+.work-more .more svg{width:var(--icon-sm);height:var(--icon-sm);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.project-card{isolation:isolate;overflow:hidden;border-color:rgb(var(--b) / .28);background:radial-gradient(58% 74% at 80% 48%,rgb(var(--b) / .46),transparent 72%),radial-gradient(52% 60% at 0% 0%,rgb(var(--b) / .18),transparent 70%),linear-gradient(135deg,rgb(var(--b) / .10),rgb(var(--b) / .03) 55%,transparent),var(--surface);transform-origin:50% 0;transform:scale(calc(1 - var(--depth, 0) * .05))}
+.project-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--canvas);opacity:calc(var(--depth, 0) * .6);pointer-events:none}
+@media(max-width:959px),(max-height:699px){.project-card{position:relative}}
+
+.pc-head{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s4)}
+.pc-head h3{margin:0}
+.pc-cat{display:inline-flex;align-items:center;min-height:28px;padding:0 var(--s3);border-radius:var(--r-pill);background:rgb(var(--b) / .12);color:var(--text);font-size:var(--fs-sm);font-weight:600}
+.pc-meta{grid-template-columns:1fr 1fr}
+
+/* The phones sit straight on the card's own brand stage; there is no inner box. */
+.pc-media{position:relative;z-index:var(--z-raised);perspective:1400px;overflow:visible;border:0;background:none}
+.project-card::before{content:attr(data-n);position:absolute;z-index:var(--z-bg);right:.02em;bottom:-.22em;font-family:var(--font-display);font-weight:900;font-size:var(--fs-watermark);line-height:1;color:rgb(var(--b) / .16);pointer-events:none}
+.pc-copy{position:relative;z-index:var(--z-raised)}
+.pc-stage{display:flex;justify-content:center;align-items:center;gap:var(--s3);width:100%;transform-style:preserve-3d;transform:rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));transition:transform var(--dur-4) ease-out}
+.pc-stage img{box-shadow:0 40px 60px -24px rgb(var(--b) / .65),0 10px 24px -10px rgb(var(--c-shadow) / .25)}
+.pc-media img:nth-child(1),.pc-media img:nth-child(3){transform:none}
+.pc-media img:nth-child(2){transform:translateY(var(--s6))}
+@media(prefers-reduced-motion:no-preference){
+  .pc-stage img{animation:float var(--dur-float) ease-in-out infinite}
+  .pc-stage img:nth-child(2){animation-delay:-2.4s}.pc-stage img:nth-child(3){animation-delay:-4.8s}
+}
+@media(max-width:959px){.pc-media{order:-1;min-height:220px;padding:var(--s4) 0 var(--s2)}}
+/* Progress rail: where you are in the featured apps. */
+.work-rail{visibility:hidden;position:fixed;right:var(--s5);top:50%;z-index:var(--z-rail);display:none;flex-direction:column;align-items:flex-end;transform:translateY(-50%);opacity:0;pointer-events:none;transition:opacity var(--dur-4) var(--ease),visibility var(--dur-4)}
+@media(min-width:1280px){.work-rail{display:flex}}
+.work-rail.show{visibility:visible;opacity:1;pointer-events:auto}
+.work-rail a{display:flex;align-items:center;justify-content:flex-end;gap:var(--s3);min-height:var(--control-size);padding:0 var(--s1);color:var(--text);font-size:var(--fs-xs);font-weight:650;text-decoration:none}
+.work-rail a span{padding:var(--s1) var(--s2);border-radius:var(--r-chip);background:var(--surface);box-shadow:var(--e1);opacity:0;transform:translateX(8px);transition:opacity var(--dur-3) var(--ease),transform calc(var(--stagger) * 4) var(--ease)}
+.work-rail a:hover span,.work-rail a:focus-visible span,.work-rail a[aria-current="true"] span{opacity:1;transform:none}
+.work-rail a i{width:12px;height:12px;border:2px solid rgb(var(--b));border-radius:var(--r-pill);background:transparent;transition:background-color var(--dur-3) var(--ease),transform calc(var(--stagger) * 5) var(--spring)}
+.work-rail a[aria-current="true"] i{background:rgb(var(--b));transform:scale(1.35)}
+.work-rail a:focus-visible{outline:var(--focus-w) solid var(--accent);outline-offset:2px;border-radius:var(--r-pill)}
+
+/* A focused control inside a stacked card must not stay hidden behind the next card. */
+.project-card:focus-within{z-index:var(--z-sticky)}

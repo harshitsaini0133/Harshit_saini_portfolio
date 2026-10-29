@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Peek — Harshit Saini’s curious creator mascot</title>
+  <desc id="desc">A playful blue character peeks over a navy ledge, looking up at an orange discovery spark.</desc>
+  <defs>
+    <clipPath id="tile"><rect x="4" y="4" width="1246" height="1246" rx="218"/></clipPath>
+    <clipPath id="left-eye"><path d="M624 754C634 842 575 910 477 921C387 932 319 886 312 810C303 725 367 646 453 628C538 608 611 663 624 754Z"/></clipPath>
+    <clipPath id="right-eye"><path d="M1003 688C1014 763 959 820 876 830C790 840 720 800 706 722C691 639 730 560 797 530C875 493 987 551 1003 688Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <path fill="#FFF9E9" d="M0 0H1254V1254H0Z"/>
+    <!-- Single character silhouette, including its two asymmetric hair tufts. -->
+    <path fill="#064BF5" d="M85 1048C88 861 133 664 251 523C300 464 359 416 426 379C380 386 345 366 355 330C367 284 431 269 521 311C493 276 442 255 443 219C444 170 512 176 566 201C626 229 672 277 700 337C858 347 984 437 1066 568C1138 683 1166 866 1171 1048H85Z"/>
+    <!-- Curious eyebrows. -->
+    <path fill="#0B1D49" d="M321 630C344 580 411 548 475 548C506 546 527 547 532 564C537 578 527 590 512 589C445 584 391 600 335 642C326 651 315 646 321 630Z"/>
+    <path fill="#0B1D49" d="M712 481C735 449 774 420 805 410C837 398 866 412 883 441C890 453 881 460 870 452C845 434 826 444 805 458C783 473 762 492 746 507C724 526 699 504 712 481Z"/>
+    <!-- Eye whites and pupils clipped to the original eye outlines. -->
+    <path fill="#FFF9E9" d="M624 754C634 842 575 910 477 921C387 932 319 886 312 810C303 725 367 646 453 628C538 608 611 663 624 754Z"/>
+    <g clip-path="url(#left-eye)">
+      <ellipse cx="552" cy="717" rx="78" ry="84" transform="rotate(-18 552 717)" fill="#0B1D49"/>
+      <circle cx="556" cy="681" r="23" fill="#FFF9E9"/>
+    </g>
+    <path fill="#FFF9E9" d="M1003 688C1014 763 959 820 876 830C790 840 720 800 706 722C691 639 730 560 797 530C875 493 987 551 1003 688Z"/>
+    <g clip-path="url(#right-eye)">
+      <ellipse cx="916" cy="613" rx="81" ry="84" transform="rotate(-24 916 613)" fill="#0B1D49"/>
+      <circle cx="914" cy="577" r="23" fill="#FFF9E9"/>
+    </g>
+    <path fill="#0B1D49" d="M643 909C686 895 716 873 736 843C745 829 763 835 763 851C760 888 728 920 691 926C670 930 650 927 640 922C633 918 635 912 643 909Z"/>
+    <!-- Four-point discovery spark. -->
+    <path fill="#FF9400" d="M1013 219C1015 210 1024 210 1027 219C1041 272 1061 292 1112 305C1120 307 1120 316 1112 318C1061 331 1040 353 1027 403C1025 412 1015 412 1013 403C1001 353 977 331 928 318C919 316 919 307 928 305C978 292 1000 271 1013 219Z"/>
+    <!-- Window ledge. -->
+    <path fill="#0B1D49" d="M88 1025H1166C1204 1025 1235 1054 1243 1092C1222 1180 1147 1249 1054 1250H200C107 1250 31 1185 11 1092C19 1054 50 1025 88 1025Z"/>
+    <!-- Hands overlap the ledge with three softly rounded fingers each. -->
+    <path fill="#0863FF" stroke="#0735AD" stroke-width="10" stroke-linejoin="round" d="M147 1044C131 1017 148 983 190 979C221 939 276 933 319 969C359 963 387 988 389 1020C391 1044 372 1071 343 1072C321 1072 303 1058 300 1042C294 1061 279 1072 261 1072C242 1072 228 1063 222 1044C217 1061 205 1072 187 1071C170 1070 155 1060 147 1044Z"/>
+    <path fill="#0863FF" stroke="#0735AD" stroke-width="10" stroke-linejoin="round" d="M879 1044C861 1020 871 984 901 973C912 969 924 967 936 969C976 932 1032 939 1064 979C1101 982 1117 1013 1104 1044C1095 1065 1077 1074 1058 1071C1043 1069 1034 1056 1032 1042C1027 1061 1014 1072 994 1072C975 1072 960 1061 955 1044C950 1061 936 1071 918 1072C900 1073 886 1060 879 1044Z"/>
+  </g>
+</svg>
