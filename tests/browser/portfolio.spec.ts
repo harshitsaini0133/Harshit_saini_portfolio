@@ -7,7 +7,8 @@ test('page loads without broken images, console errors or horizontal overflow', 
   await page.goto('./');
   await expect(page.locator('h1')).toBeVisible();
   for (const image of await page.locator('img').all()) {
-    await image.scrollIntoViewIfNeeded();
+    // Hero and project screenshots float on a looping animation, so Playwright never sees them as "stable"; scroll them in directly.
+    await image.evaluate((node: HTMLImageElement) => node.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBeTruthy();
   }
   expect(errors).toEqual([]);
